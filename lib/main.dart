@@ -118,6 +118,19 @@ class WalletIcon extends StatelessWidget {
         children: [
 
           Positioned(
+            top: 13,
+            left: 29,
+            child: Container(
+              width: 25,
+              height: 35,
+              decoration: BoxDecoration(
+                color: const Color(0xFF55B866),
+                borderRadius: BorderRadius.circular(5),
+              ),
+            ),
+          ),
+
+          Positioned(
             top: 0,
             left: 40,
             child: Container(
@@ -130,18 +143,6 @@ class WalletIcon extends StatelessWidget {
             ),
           ),
 
-          Positioned(
-            top: 13,
-            left: 29,
-            child: Container(
-              width: 25,
-              height: 35,
-              decoration: BoxDecoration(
-                color: const Color(0xFF55B866),
-                borderRadius: BorderRadius.circular(5),
-              ),
-            ),
-          ),
 
           Positioned(
             bottom: 4,
