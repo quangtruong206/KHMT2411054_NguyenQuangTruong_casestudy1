@@ -78,11 +78,11 @@ class WelcomeScreen extends StatelessWidget {
                 height: 56,
                 child: ElevatedButton(
                   onPressed: () {
-                    // 1. Lệnh Navigator.push dùng để đẩy (chuyển) sang màn hình mới
+
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        // 2. Gọi tên cái màn hình ở file transaction.dart ra
+
                         builder: (context) => const TransactionScreen(isEditing: false),
                       ),
                     );
