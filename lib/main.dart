@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'transaction_screen.dart';
 
 void main() {
   runApp(const ExpenseManagerApp());
@@ -25,84 +26,93 @@ class ExpenseManagerApp extends StatelessWidget {
 }
 
 class WelcomeScreen extends StatelessWidget {
-const WelcomeScreen({super.key});
+  const WelcomeScreen({super.key});
 
-@override
-Widget build(BuildContext context) {
-return Scaffold(
-backgroundColor: Colors.white,
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
 
-body: SafeArea(
-child: Padding(
-padding: const EdgeInsets.symmetric(horizontal: 24),
-child: Column(
-children: [
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            children: [
 
-const Spacer(flex: 3),
+              const Spacer(flex: 3),
 
-const WalletIcon(),
+              const WalletIcon(),
 
-const SizedBox(height: 28),
+              const SizedBox(height: 28),
 
-const Text(
-'Expense Manager',
-textAlign: TextAlign.center,
-style: TextStyle(
-fontSize: 26,
-fontWeight: FontWeight.w700,
-color: Color(0xFF14213D),
-letterSpacing: 0.2,
-),
-),
+              const Text(
+                'Expense Manager',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.w700,
+                  color: Color(0xFF14213D),
+                  letterSpacing: 0.2,
+                ),
+              ),
 
-const SizedBox(height: 22),
+              const SizedBox(height: 22),
 
-const Text(
-'Quản lý chi tiêu cá nhân\nđơn giản và hiệu quả',
-textAlign: TextAlign.center,
-style: TextStyle(
-fontSize: 16,
-height: 1.55,
-color: Color(0xFF7D8DA6),
-fontWeight: FontWeight.w400,
-),
-),
-
-
-const Spacer(flex: 4),
+              const Text(
+                'Quản lý chi tiêu cá nhân\nđơn giản và hiệu quả',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  height: 1.55,
+                  color: Color(0xFF7D8DA6),
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
 
 
-SizedBox(
-width: double.infinity,
-height: 56,
-child: ElevatedButton(
-onPressed: () {
+              const Spacer(flex: 4),
 
-},
-style: ElevatedButton.styleFrom(
-backgroundColor: const Color(0xFF2176C7),
-foregroundColor: Colors.white,
-elevation: 0,
-shape: RoundedRectangleBorder(
-borderRadius: BorderRadius.circular(15),
-),
-),
-child: const Text(
-'Bắt đầu',
-style: TextStyle(
-fontSize: 19,
-fontWeight: FontWeight.bold,
-),
-),
-),
-),
 
-const SizedBox(height: 18),
-],),
-),
-),
-);
-}
+              SizedBox(
+                width: double.infinity,
+                height: 56,
+                child: ElevatedButton(
+                  onPressed: () {
+                    // 1. Lệnh Navigator.push dùng để đẩy (chuyển) sang màn hình mới
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        // 2. Gọi tên cái màn hình ở file transaction.dart ra
+                        builder: (context) => const TransactionScreen(isEditing: false),
+                      ),
+                    );
+
+
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF2176C7),
+                    foregroundColor: Colors.white,
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
+                  child: const Text(
+                    'Bắt đầu',
+                    style: TextStyle(
+                      fontSize: 19,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 18),
+            ],),
+        ),
+      ),
+    );
+  }
 }
 
 class WalletIcon extends StatelessWidget {
